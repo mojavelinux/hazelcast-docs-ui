@@ -1,12 +1,6 @@
 'use strict'
 
-// NOTE remove patch after upgrading from asciidoctor.js to @asciidoctor/core
-Error.call = (self, ...args) => {
-  const err = new Error(...args)
-  return Object.assign(self, { message: err.message, stack: err.stack })
-}
-
-const asciidoctor = require('asciidoctor.js')()
+const asciidoctor = require('@asciidoctor/core')()
 const fs = require('fs-extra')
 const handlebars = require('handlebars')
 const merge = require('merge-stream')
